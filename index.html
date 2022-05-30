@@ -1,7 +1,166 @@
 <head>
+	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <input type="text" id="team">
-  <p id="out"></p>
-  <script src="fffquickteam.js"></script>
+	<output id="team"></output>
+	<form id="team-select" oninput="
+		var elements = document.querySelectorAll(&quot;#team-select input[type=text]&quot;);
+		var monsters = document.getElementById(&quot;monsters&quot;).options;
+		var team = document.getElementById(&quot;team&quot;);
+		monsters =
+			Object.entries(monsters)
+			.map(el => el[1].value);
+		elements =
+			Object.entries(elements)
+			.map(el => el[1])
+			.filter(el => el.value.length > 0)
+			.map(el => el.value)
+			.filter(function(el) {
+				for(var i = 0; i < monsters.length; i++)  {
+					if(monsters[i] == el)
+						return true;
+				}
+				return false;
+			})
+			.join(', ');
+		team.value = prefix.value + elements;
+	">
+		<input type="text" name="m1"  id="m1"  autocomplete="off" list="monsters"><label for="m1"> M1</label>
+		<input type="text" name="m2"  id="m2"  autocomplete="off" list="monsters"><label for="m2"> M2</label>
+		<input type="text" name="m3"  id="m3"  autocomplete="off" list="monsters"><label for="m3"> M3</label>
+		<input type="text" name="m4"  id="m4"  autocomplete="off" list="monsters"><label for="m4"> M4</label>
+		<input type="text" name="m5"  id="m5"  autocomplete="off" list="monsters"><label for="m5"> M5</label>
+		<input type="text" name="m6"  id="m6"  autocomplete="off" list="monsters"><label for="m6"> M6</label>
+		<input type="text" name="m7"  id="m7"  autocomplete="off" list="monsters"><label for="m7"> M7</label>
+		<input type="text" name="m8"  id="m8"  autocomplete="off" list="monsters"><label for="m8"> M8</label>
+		<input type="text" name="m9"  id="m9"  autocomplete="off" list="monsters"><label for="m9"> M9</label>
+		<input type="text" name="m10" id="m10" autocomplete="off" list="monsters"><label for="m10"> M10</label>
+		<output name="prefix" hidden>!fffteam </output>
+		<datalist id="monsters">
+			<option value="AGAMA">AGAMA</option>
+			<option value="AIR">AIR</option>
+			<option value="ANKYLO">ANKYLO</option>
+			<option value="ARACHNID">ARACHNID</option>
+			<option value="ASP">ASP</option>
+			<option value="ASTOS">ASTOS</option>
+			<option value="BADMAN">BADMAN</option>
+			<option value="BigEYE">BigEYE</option>
+			<option value="Blue D">Blue D</option>
+			<option value="BONE">BONE</option>
+			<option value="BULL">BULL</option>
+			<option value="CARIBE">CARIBE</option>
+			<option value="CATMAN">CATMAN</option>
+			<option value="CEREBUS">CEREBUS</option>
+			<option value="CHAOS">CHAOS</option>
+			<option value="CHIMERA">CHIMERA</option>
+			<option value="COBRA">COBRA</option>
+			<option value="COCTRICE">COCTRICE</option>
+			<option value="CRAWL">CRAWL</option>
+			<option value="CREEP">CREEP</option>
+			<option value="EARTH">EARTH</option>
+			<option value="EVILMAN">EVILMAN</option>
+			<option value="EYE">EYE</option>
+			<option value="FIGHTER">FIGHTER</option>
+			<option value="FIRE">FIRE</option>
+			<option value="FrGATOR">FrGATOR</option>
+			<option value="FrGIANT">FrGIANT</option>
+			<option value="Frost D">Frost D</option>
+			<option value="FrWOLF">FrWOLF</option>
+			<option value="GARGOYLE">GARGOYLE</option>
+			<option value="GARLAND">GARLAND</option>
+			<option value="Gas D">Gas D</option>
+			<option value="GATOR">GATOR</option>
+			<option value="GEIST">GEIST</option>
+			<option value="GHOST">GHOST</option>
+			<option value="GHOUL">GHOUL</option>
+			<option value="GIANT">GIANT</option>
+			<option value="Grey W">Grey W</option>
+			<option value="GrIMP">GrIMP</option>
+			<option value="GrMEDUSA">GrMEDUSA</option>
+			<option value="GrNAGA">GrNAGA</option>
+			<option value="GrOGRE">GrOGRE</option>
+			<option value="GrPEDE">GrPEDE</option>
+			<option value="GrSHARK">GrSHARK</option>
+			<option value="GrWOLF">GrWOLF</option>
+			<option value="GUARD">GUARD</option>
+			<option value="HYDRA">HYDRA</option>
+			<option value="HYENA">HYENA</option>
+			<option value="IGUANA">IGUANA</option>
+			<option value="IMAGE">IMAGE</option>
+			<option value="IMP">IMP</option>
+			<option value="IronGOL">IronGOL</option>
+			<option value="JIMERA">JIMERA</option>
+			<option value="KARY">KARY</option>
+			<option value="KRAKEN">KRAKEN</option>
+			<option value="KYZOKU">KYZOKU</option>
+			<option value="LICH">LICH</option>
+			<option value="LOBSTER">LOBSTER</option>
+			<option value="MADPONY">MADPONY</option>
+			<option value="MAGE">MAGE</option>
+			<option value="MANCAT">MANCAT</option>
+			<option value="MANTICOR">MANTICOR</option>
+			<option value="MEDUSA">MEDUSA</option>
+			<option value="MUCK">MUCK</option>
+			<option value="MudGOL">MudGOL</option>
+			<option value="MUMMY">MUMMY</option>
+			<option value="NAGA">NAGA</option>
+			<option value="NAOCHO">NAOCHO</option>
+			<option value="NITEMARE">NITEMARE</option>
+			<option value="OCHO">OCHO</option>
+			<option value="OddEYE">OddEYE</option>
+			<option value="OGRE">OGRE</option>
+			<option value="OOZE">OOZE</option>
+			<option value="PEDE">PEDE</option>
+			<option value="PERILISK">PERILISK</option>
+			<option value="PHANTOM">PHANTOM</option>
+			<option value="PIRATE">PIRATE</option>
+			<option value="R.ANKYLO">R.ANKYLO</option>
+			<option value="R.BONE">R.BONE</option>
+			<option value="R.CARIBE">R.CARIBE</option>
+			<option value="R.GIANT">R.GIANT</option>
+			<option value="R.GOYLE">R.GOYLE</option>
+			<option value="R.HYDRA">R.HYDRA</option>
+			<option value="R.SAHAG">R.SAHAG</option>
+			<option value="Red D">Red D</option>
+			<option value="RockGOL">RockGOL</option>
+			<option value="Saber T">Saber T</option>
+			<option value="SAHAG">SAHAG</option>
+			<option value="Sand W">Sand W</option>
+			<option value="SAURIA">SAURIA</option>
+			<option value="SCORPION">SCORPION</option>
+			<option value="SCUM">SCUM</option>
+			<option value="SeaSNAKE">SeaSNAKE</option>
+			<option value="SeaTROLL">SeaTROLL</option>
+			<option value="SENTRY">SENTRY</option>
+			<option value="SHADOW">SHADOW</option>
+			<option value="SHARK">SHARK</option>
+			<option value="SLIME">SLIME</option>
+			<option value="SORCERER">SORCERER</option>
+			<option value="SPECTER">SPECTER</option>
+			<option value="SPHINX">SPHINX</option>
+			<option value="SPIDER">SPIDER</option>
+			<option value="T REX">T REX</option>
+			<option value="TIAMAT">TIAMAT</option>
+			<option value="TIGER">TIGER</option>
+			<option value="TROLL">TROLL</option>
+			<option value="TYRO">TYRO</option>
+			<option value="VAMPIRE">VAMPIRE</option>
+			<option value="WarMECH">WarMECH</option>
+			<option value="WATER">WATER</option>
+			<option value="WIZARD">WIZARD</option>
+			<option value="WOLF">WOLF</option>
+			<option value="WORM">WORM</option>
+			<option value="WRAITH">WRAITH</option>
+			<option value="WrWOLF">WrWOLF</option>
+			<option value="WYRM">WYRM</option>
+			<option value="WYVERN">WYVERN</option>
+			<option value="WzMUMMY">WzMUMMY</option>
+			<option value="WzOGRE">WzOGRE</option>
+			<option value="WzSAHAG">WzSAHAG</option>
+			<option value="WzVAMP">WzVAMP</option>
+			<option value="ZOMBIE">ZOMBIE</option>
+			<option value="ZombieD">ZombieD</option>
+			<option value="ZomBULL">ZomBULL</option>
+		</datalist>
+	</form>
 </body>
